@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,25 +9,29 @@ namespace SudokuSolver
 {
     class Program
     {
-        static void ReadFile()
+        static int[,] ReadFile()
         {
-            int counter = 0;
-            string line;
-         
-            System.IO.StreamReader file =
-               new System.IO.StreamReader("C:\\Users\\Maxime\\Documents\\Visual Studio 2015\\Projects\\SudokuSolver\\SudokuSolver\\sudoku.txt");
+            string file = File.ReadAllText("C:\\Users\\Maxime\\Documents\\Visual Studio 2015\\Projects\\SudokuSolver\\SudokuSolver\\sudoku.txt");
 
-            while ((line = file.ReadLine()) != null)
+            int i = 0, j = 0;
+            int[,] sudoku = new int[9, 9];
+
+            foreach (var row in file.Split('\n'))
             {
-                Console.WriteLine(line);
-                counter++;
+                j = 0;
+                foreach (var column in row.Split(' '))
+                {
+                    sudoku[i, j] = int.Parse(column);
+                    j++;
+                }
+                i++;
             }
-            file.Close();
-            Console.ReadKey();
+            return sudoku;
         }
+
         static void Main(string[] args)
         {
-            ReadFile();
+            Console.ReadKey();
         }
     }
 }
