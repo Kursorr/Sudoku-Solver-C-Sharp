@@ -14,7 +14,7 @@ namespace SudokuSolver
             string line;
          
             System.IO.StreamReader file =
-               new System.IO.StreamReader("c:\\test.txt");
+               new System.IO.StreamReader("C:\\Users\\Maxime\\Documents\\Visual Studio 2015\\Projects\\SudokuSolver\\SudokuSolver\\sudoku.txt");
 
             while ((line = file.ReadLine()) != null)
             {
@@ -22,10 +22,11 @@ namespace SudokuSolver
                 counter++;
             }
             file.Close();
-            Console.ReadLine();
+            Console.ReadKey();
         }
         static void Main(string[] args)
         {
+            ReadFile();
         }
     }
 }
