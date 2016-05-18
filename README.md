@@ -1,1 +1,1 @@
-# Sudoku Solver in C#
+# Sudoku Solver in C Sharp
